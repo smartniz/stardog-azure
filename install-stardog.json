@@ -11,12 +11,19 @@
       "metadata": {
         "description": "Location for all resources."
       }
+    },
+    "email": {
+      "type": "string",
+      "minLength": 1, // Required?
+      "metadata": {
+        "description": "Email address to use for verification when downloading trial license"
+      }
     }
   },
   "resources": [
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
-      "name": "[concat(parameters('vmName'),'/configurestardog')]",
+      "name": "[concat(parameters('vmName'),'/installstardog')]",
       "apiVersion": "2015-05-01-preview",
       "location": "[parameters('location')]",
       "properties": {
@@ -26,9 +33,9 @@
         "autoUpgradeMinorVersion": true,
         "settings": {
           "fileUris": [
-            "./stardog-install.sh"
+            "https://raw.githubusercontent.com/stardog-union/stardog-azure/master/stardog-install.sh"
           ],
-          "commandToExecute": "sh stardog-install.sh"
+          "commandToExecute": "[concat('sh stardog-install.sh ', parameters('email'))]"
         }
       }
     }

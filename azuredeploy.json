@@ -59,6 +59,12 @@
       "metadata": {
         "description": "SSH Key or password for the Virtual Machine. SSH key is recommended."
       }
+    },
+    "email": {
+      "type": "string",
+      "metadata": {
+        "description": "Email address to use for verification when downloading trial license"
+      }
     }
   },
   "variables": {
@@ -78,7 +84,7 @@
     "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
     "subnet1Ref": "[concat(variables('vnetID'),'/subnets/',variables('subnet1Name'))]",
 //    "installstardogTemplateurl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-dependency-between-scripts-using-extensions/install-stardog.json",
-    "installstardogTemplateurl": "./install-stardog.json",
+    "installstardogTemplateurl": "https://raw.githubusercontent.com/stardog-union/stardog-azure/master/install-stardog.json",
     "linuxConfiguration": {
       "disablePasswordAuthentication": true,
       "ssh": {
@@ -201,7 +207,7 @@
     },
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
-      "name": "[concat(variables('vmName'),'/installstardog')]",
+      "name": "[concat(variables('vmName'),'/configurestardog')]",
       "apiVersion": "2019-03-01",
       "location": "[parameters('location')]",
       "dependsOn": [
@@ -214,9 +220,10 @@
         "autoUpgradeMinorVersion": true,
         "settings": {
           "fileUris": [
-            "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-dependency-between-scripts-using-extensions/stardog-configure-ubuntu.sh"
+            // "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-dependency-between-scripts-using-extensions/stardog-configure-ubuntu.sh"
+            "https://raw.githubusercontent.com/stardog-union/stardog-azure/master/configure-stardog.sh"
           ],
-          "commandToExecute": "sh stardog-configure-ubuntu.sh"
+          "commandToExecute": "sh configure-stardog.sh"
         }
         // "protectedSettings":{
         //   "storageAccountName": "[parameters('newStorageAccountName')]",
@@ -230,7 +237,7 @@
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2019-05-01",
       "dependsOn": [
-        "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'),'/extensions/installstardog')]"
+        "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'),'/extensions/configurestardog')]"
       ],
       "properties": {
         "mode": "Incremental",
