@@ -83,7 +83,6 @@
     "nicName": "myStardogVMNic",
     "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
     "subnet1Ref": "[concat(variables('vnetID'),'/subnets/',variables('subnet1Name'))]",
-    "installstardogTemplateurl": "https://raw.githubusercontent.com/stardog-union/stardog-azure/master/install-stardog.json",
     "linuxConfiguration": {
       "disablePasswordAuthentication": true,
       "ssh": {
@@ -216,9 +215,9 @@
         "autoUpgradeMinorVersion": true,
         "settings": {
           "fileUris": [
-            "https://raw.githubusercontent.com/stardog-union/stardog-azure/master/stardog-install.sh"
+            "https://raw.githubusercontent.com/stardog-union/stardog-azure/master/install-stardog.sh"
           ],
-          "commandToExecute": "[concat('sh stardog-install.sh ', parameters('email'))]"
+          "commandToExecute": "[concat('sh install-stardog.sh ', parameters('email'))]"
         }
       }
     }
