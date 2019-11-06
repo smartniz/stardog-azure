@@ -76,11 +76,11 @@
     "subnet1Name": "Subnet-1",
     "subnet1Prefix": "10.0.0.0/24",
     "publicIPAddressType": "Dynamic",
-    "publicIPAddressName": "myPublicIP",
+    "publicIPAddressName": "[concat(parameters('dnsNameForPublicIP'), 'PublicIP')]",
     "storageAccountType": "Standard_LRS",
-    "vmName": "myStardogVM",
-    "virtualNetworkName": "myStardogVNET",
-    "nicName": "myStardogVMNic",
+    "vmName": "[concat(parameters('dnsNameForPublicIP'), 'VM')]",
+    "virtualNetworkName": "[concat(parameters('dnsNameForPublicIP'), 'VNET')]",
+    "nicName": "[concat(parameters('dnsNameForPublicIP'), 'VMNic')]",
     "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
     "subnet1Ref": "[concat(variables('vnetID'),'/subnets/',variables('subnet1Name'))]",
     "linuxConfiguration": {
@@ -206,6 +206,9 @@
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
       "name": "[concat(variables('vmName'),'/installstardog')]",
+      "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+      ],
       "apiVersion": "2015-05-01-preview",
       "location": "[parameters('location')]",
       "properties": {
