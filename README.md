@@ -15,7 +15,7 @@ This template deploys [Stardog](https://stardog.com) on an Ubuntu Virtual Machin
 Click the "Deploy" button above to deploy this template on your Azure account. You will need to set the following parameters:
 
 | Name | Description |
-|:--- |:--- |:---|
+|:--- |:--- |
 | newStorageAccountName | The name to use for the storage account |
 | vmSize | The size/type of VM to use |
 | dnsNameForPublicIP | The unique DNS name for the VM's public IP address |
