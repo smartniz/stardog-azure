@@ -16,7 +16,6 @@ Click the "Deploy" button above to deploy this template on your Azure account. Y
 
 | Name | Description |
 |:--- |:--- |:---|
-
 | newStorageAccountName | The name to use for the storage account |
 | vmSize | The size/type of VM to use |
 | dnsNameForPublicIP | The unique DNS name for the VM's public IP address |
