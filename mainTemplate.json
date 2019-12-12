@@ -378,7 +378,7 @@
         "autoUpgradeMinorVersion": true,
         "settings": {
           "fileUris": [
-            "https://raw.githubusercontent.com/stardog-union/stardog-azure/master/install-stardog.sh"
+            "https://raw.githubusercontent.com/stardog-union/stardog-azure/master/scripts/install-stardog.sh"
           ],
           "commandToExecute": "[concat('sh install-stardog.sh ', parameters('email'), ' ', parameters('stardogAdminUser'), ' ', parameters('stardogAdminPassword'))]"
         }
