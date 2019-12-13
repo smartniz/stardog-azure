@@ -232,7 +232,7 @@
       "location": "[parameters('location')]",
       "sku": {
         "name": "[parameters('publicIpSku')]"
-      },    
+      },
       "properties": {
         "publicIPAllocationMethod": "[parameters('publicIpAllocationMethod')]",
         "dnsSettings": {
@@ -381,6 +381,20 @@
             "https://raw.githubusercontent.com/stardog-union/stardog-azure/master/scripts/install-stardog.sh"
           ],
           "commandToExecute": "[concat('sh install-stardog.sh ', parameters('email'), ' ', parameters('stardogAdminUser'), ' ', parameters('stardogAdminPassword'))]"
+        }
+      }
+    },
+    {
+      "apiVersion": "2018-02-01",
+      "name": "pid-dd86b149-165e-50fa-9321-4ea62b872176 ",
+      "type": "Microsoft.Resources/deployments",
+      "properties": {
+        "mode": "Incremental",
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "contentVersion": "7.1.0.0",
+          "resources": [
+          ]
         }
       }
     }
