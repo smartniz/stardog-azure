@@ -4,8 +4,6 @@
     <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
 </a>
 
-## This template is a WIP. As it currently exists, it WILL NOT WORK. YOU HAVE BEEN WARNED.
-
 This template deploys [Stardog](https://stardog.com) on an Ubuntu Virtual Machine. This template also deploys a Storage Account, Virtual Network, Public IP address and a Network Interface.
 
 ### Usage
