@@ -180,6 +180,9 @@
     "imageOffer": "UbuntuServer",
     "networkSecurityGroupName": "stardog-sg",
     "nicName": "[concat(parameters('publicIpDns'), 'VMNic')]",
+    "publicIpAddressId": {
+      "id": "[resourceId(parameters('virtualNetworkResourceGroupName'), 'Microsoft.Network/publicIPAddresses', parameters('publicIpName'))]"
+    },
     "linuxConfiguration": {
       "disablePasswordAuthentication": true,
       "ssh": {
