@@ -263,7 +263,7 @@
           {
             "name": "allow-stardog",
             "properties": {
-              "priority": 1000,
+              "priority": 1001,
               "sourceAddressPrefix": "*",
               "protocol": "Tcp",
               "destinationPortRange": "5820-5821",
