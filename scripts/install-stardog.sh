@@ -2,6 +2,10 @@ EMAIL=$1
 ADMIN_USER=$2
 ADMIN_PASS=$3
 
+if [ -z "$3"]; then
+  ADMIN_PASS="admin"
+fi
+
 curl http://packages.stardog.com/stardog.gpg.pub | sudo apt-key add
 echo "deb http://packages.stardog.com/deb/ stable main" | sudo tee -a /etc/apt/sources.list
 
