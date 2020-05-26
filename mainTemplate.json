@@ -169,8 +169,7 @@
       "type": "securestring",
       "metadata": {
         "description": "Password for the default Stardog superuser"
-      },
-      "defaultValue": "admin"
+      }
     }
   },
   "variables": {
@@ -199,7 +198,7 @@
     {
       "condition": "[equals(parameters('storageNewOrExisting'), 'new')]",
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2018-02-01",
+      "apiVersion": "2019-06-01",
       "name": "[parameters('storageAccountName')]",
       "location": "[parameters('location')]",
       "kind": "Storage",
@@ -210,7 +209,7 @@
     {
       "condition": "[equals(parameters('virtualNetworkNewOrExisting'), 'new')]",
       "type": "Microsoft.Network/virtualNetworks",
-      "apiVersion": "2018-04-01",
+      "apiVersion": "2019-12-01",
       "name": "[parameters('virtualNetworkName')]",
       "location": "[parameters('location')]",
       "properties": {
@@ -230,7 +229,7 @@
     {
       "condition": "[equals(parameters('publicIpNewOrExisting'), 'new')]",
       "type": "Microsoft.Network/publicIPAddresses",
-      "apiVersion": "2018-04-01",
+      "apiVersion": "2019-12-01",
       "name": "[parameters('publicIpName')]",
       "location": "[parameters('location')]",
       "sku": {
@@ -246,7 +245,7 @@
     {
       "name": "[variables('networkSecurityGroupName')]",
       "type": "Microsoft.Network/networkSecurityGroups",
-      "apiVersion": "2018-04-01",
+      "apiVersion": "2019-12-01",
       "location": "[parameters('location')]",
       "properties": {
         "securityRules": [
@@ -280,7 +279,7 @@
       }
     },
     {
-      "apiVersion": "2018-04-01",
+      "apiVersion": "2019-12-01",
       "type": "Microsoft.Network/networkInterfaces",
       "name": "[variables('nicName')]",
       "location": "[parameters('location')]",
@@ -368,7 +367,7 @@
       }
     },
     {
-      "apiVersion": "2018-02-01",
+      "apiVersion": "2019-10-01",
       "name": "pid-dd86b149-165e-50fa-9321-4ea62b872176",
       "type": "Microsoft.Resources/deployments",
       "properties": {
